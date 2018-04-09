@@ -24,17 +24,17 @@ public class WebServerApplicationTests {
 
 
 	@Test
-    public void accessProtected() throws Exception {
-        this.mockMvc.perform(get("/"))
-                .andExpect(unauthenticated())
-                .andExpect(status().isUnauthorized());
-    }
+	public void accessProtected() throws Exception {
+		this.mockMvc.perform(get("/"))
+				.andExpect(unauthenticated())
+				.andExpect(status().isUnauthorized());
+	}
 
 	@Test
-   public void loginUser() throws Exception {
-       this.mockMvc.perform(get("/")
-               .with(httpBasic("user", "password")))
-               .andExpect(status().isOk());
-   }
+	public void loginUser() throws Exception {
+		this.mockMvc.perform(get("/")
+				.with(httpBasic("user", "password")))
+				.andExpect(status().isOk());
+	}
 
 }
